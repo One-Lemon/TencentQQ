@@ -1,0 +1,7 @@
+{
+    "files.autoSave": "onFocusChange",
+    "editor.formatOnSave": true,
+    "files.associations": {
+        "*.js": "JavaScript React"
+    }
+}
