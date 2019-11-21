@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import Store from "./store";
 import { Provider } from "react-redux";
+import "reset-css";
 
 /**
  * 项目入口 添加仓库

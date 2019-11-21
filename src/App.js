@@ -11,6 +11,7 @@ export default class App extends Component {
       <Router>
         <Switch>
           <Route path="/" component={Index} />
+          {/* <Route path="/talk" component={} /> */}
         </Switch>
       </Router>
     );
