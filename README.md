@@ -16,6 +16,7 @@
 - socket.io-client socket 客户端
 - redux-thunk 异步
 - redux-logger 日志
+- axios
 
 ---
 

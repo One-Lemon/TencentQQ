@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Index from "./pages/index";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import Room from "./pages/room/index";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 /**
  * 路由设置
@@ -10,8 +11,9 @@ export default class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route path="/" component={Index} />
-          {/* <Route path="/talk" component={} /> */}
+          <Route path="/room/:user" component={Room} />
+          <Route path="/index" component={Index} />
+          <Redirect to="/index" />
         </Switch>
       </Router>
     );
