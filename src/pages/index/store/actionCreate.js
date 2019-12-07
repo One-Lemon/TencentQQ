@@ -1,11 +1,11 @@
-import { TEST } from "./actionType";
+import { SETTALKUSER } from "./actionType";
 
 /**
  * 测试action
  */
-export const onTest = data => {
+export const setTalkUser = data => {
   return {
-    type: TEST,
+    type: SETTALKUSER,
     data
   };
 };

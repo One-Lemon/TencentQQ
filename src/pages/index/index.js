@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { TEST } from "./store/actionType";
 import { connect } from "react-redux";
 import { Avatar } from 'antd';
 import { BoxWarp } from './css';
@@ -14,7 +13,6 @@ class Index extends Component {
         }
     }
     componentDidMount() {
-        console.log(this.props)
     }
     render() {
         const { match, location } = this.props;
@@ -64,12 +62,6 @@ const mapStateToProps = ({ Index }) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onTest: () => {
-            dispatch({
-                type: TEST,
-                data: '6个核桃'
-            })
-        }
     };
 };
 

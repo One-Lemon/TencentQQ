@@ -1,18 +1,18 @@
-import { TEST } from "./actionType";
+import { SETTALKUSER } from "./actionType";
 
 const initState = {
-  testVal: "测试代码"
+  talkUser: {}
 };
 
 export default (state = initState, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
-    case TEST:
-      console.log("6的雅痞11");
-      newState.testVal += "6";
+    case SETTALKUSER:
+      newState.talkUser = action.data;
       break;
     default:
       return newState;
   }
   return newState;
 };
+

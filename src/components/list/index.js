@@ -4,6 +4,7 @@ import { ListWarp } from '../css';
 import { Avatar } from "antd";
 import { MyIcon } from "../../utils/icon";
 import { withRouter } from "react-router-dom";
+import { setTalkUser } from "../../pages/index/store/actionCreate";
 
 class Qlist extends Component {
     constructor(props) {
@@ -74,7 +75,9 @@ const mapStateToProps = (state, props) => ({
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
-
+    setUser: () => {
+        dispatch(setTalkUser)
+    }
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Qlist));

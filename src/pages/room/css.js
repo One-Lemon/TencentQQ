@@ -38,6 +38,9 @@ position: relative;
                 left: 50%;
                 transform: translateX(-50%);
             }
+            #back{
+                cursor: pointer;
+            }
         }
 
     #box {
@@ -45,13 +48,31 @@ position: relative;
         display: flex;
         flex-direction: column;
         flex: 1;    
+        background: #F5F6FA;
     }
     #footer{
         background: white;
-        height: 8vh;
+        height: 5.3vh;
         display: flex;
         align-items:  center;
         justify-content: space-around;
+        background: #F5F6FA;
+        padding: 0 1.5vh;
+        .icon{
+            font-size: 22px;
+            margin-left: 5px;
+        }
+        #talk-inner{
+            flex: 1;
+            margin: 0 1.5vh;
+            border: none;
+            outline: none;
+            border-radius: 2vh;
+            background:  white;
+        }
+        #talk-inner{
+            height: 3vh;
+        }
     }
 }
 `

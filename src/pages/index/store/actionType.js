@@ -1,1 +1,1 @@
-export const TEST = "test";
+export const SETTALKUSER = "SETTalkUser";
