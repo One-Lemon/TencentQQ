@@ -22,7 +22,7 @@ const codeMessage = {
     504: "网关超时。"
 };
 
-const baseUrl = "http://127.0.0.1";
+const baseUrl = "http://127.0.0.1:3002";
 /**配置默认请求路径 */
 axios.defaults.baseURL = baseUrl;
 /**配置超时时间 */
@@ -33,26 +33,36 @@ axios.defaults.timeout = 10000;
 axios.interceptors.response.use(
     response => {
         const res = response.data;
-        if (response.status !== 200 && res.status !== 200) {
+        if (response.status !== 200 && response.request !== 200) {
             const msg = codeMessage[response.status];
             message.error(msg);
         } else {
-            message.success("GET成功，wati");
-            return response.data;
+            message.success({
+                content: "请求成功，正在偷数据...",
+                key: "request"
+            });
+            return res;
         }
     },
     error => {
-        message.error("接口出了点大问题");
+        message.error("接口出了点大问题!!!");
         return Promise.reject(error);
     }
 );
 
 const request = async (options) => {
+    message.loading({
+        content: "加载中...",
+        key: "request"
+    });
     if (typeof options != "object") {
-        message.warn("请求参数错误");
+        message.warn({
+            content: "请求参数错误",
+            key: "request"
+        });
         return;
     }
-    axios.request({ ...options })
+    return await axios.request({ ...options });
 }
 
 export default request;

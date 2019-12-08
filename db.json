@@ -3,5 +3,38 @@
         "id": 1,
         "username": "qfl",
         "age": 38
+    }],
+    "talkList": [{
+            "talkId": "girl",
+            "name": "邱福亮",
+            "avatar": "/images/myavatar.png",
+            "recentMessage": "OK，邱邱说的对",
+            "time": "下午 10:09",
+            "state": ["isFire", "isShip"],
+            "quantity": 2
+        },
+        {
+            "talkId": "Boy",
+            "name": "俞慧敏",
+            "avatar": "/images/myavatar.png",
+            "recentMessage": "OK，邱邱说的对",
+            "time": "下午 10:09",
+            "state": ["isFire"],
+            "quantity": 2
+        }
+    ],
+    "talkInfo": [{
+        "talkId": "Boy",
+        "name": "俞慧敏",
+        "info": []
+    }, {
+        "talkId": "girl",
+        "name": "邱福亮",
+        "info": [{
+            "talkId": "Boy",
+            "content": "我告诉你，你就是个弟弟",
+            "avatar": "/images/myavatar.png",
+            "time": "2019-12-8 14:42"
+        }]
     }]
 }

@@ -5,19 +5,23 @@ import { Avatar } from "antd";
 import { MyIcon } from "../../utils/icon";
 import { withRouter } from "react-router-dom";
 import { setTalkUser } from "../../pages/index/store/actionCreate";
+import request from "../../utils/request";
 
 class Qlist extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            talkList: [
-                { talkId: "girl", name: '现女友', avatar: '/images/myavatar.png', recentMessage: "OK，邱邱说的对", time: "下午 10:09", state: ["isFire", "isShip"], quantity: 2 },
-                { talkId: "your", name: '你猜', avatar: '', recentMessage: "sdf", time: "下午 10:09", state: ["isFire", "isShip"], quantity: 0 },
-                { talkId: "duola", name: '哆啦A梦', avatar: '', recentMessage: "所答非所问", time: "下午 10:09", state: ["isFire", "isShip"], quantity: 0 },
-                { talkId: "diga", name: '迪迦', avatar: '', recentMessage: "纷纷回复", time: "下午 10:09", state: ["isFire", "isShip"], quantity: 0 },
-                { talkId: "jiumi", name: '瞅瞅', avatar: '', recentMessage: "山东工商学院", time: "下午 10:09", state: ["isFire", "isShip"], quantity: 0 },
-            ]
+            talkList: []
         }
+    }
+
+    async componentDidMount() {
+        const talkList = await request({
+            url: "talkList"
+        });
+        this.setState({
+            talkList
+        })
     }
 
     /**
@@ -25,7 +29,10 @@ class Qlist extends Component {
      * @param id 房间id
      */
     onToTalk = (id) => {
-        const { history } = this.props;
+        const { history, setUser } = this.props;
+        const { talkList } = this.state;
+        const user = talkList.find(user => user.talkId === id);
+        setUser(user);
         history.push(`/room/${id}`);
     }
 
@@ -70,13 +77,13 @@ class Qlist extends Component {
     }
 }
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = (state) => ({
 
 })
 
-const mapDispatchToProps = (dispatch, props) => ({
-    setUser: () => {
-        dispatch(setTalkUser)
+const mapDispatchToProps = (dispatch) => ({
+    setUser: (user) => {
+        dispatch(setTalkUser(user))
     }
 })
 

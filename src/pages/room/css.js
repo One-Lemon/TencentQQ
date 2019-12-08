@@ -49,6 +49,10 @@ position: relative;
         flex-direction: column;
         flex: 1;    
         background: #F5F6FA;
+        overflow-y: scroll;
+        ::-webkit-scrollbar{
+            display: none;
+        }
     }
     #footer{
         background: white;

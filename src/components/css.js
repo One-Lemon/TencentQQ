@@ -53,3 +53,26 @@ export const ListWarp = styled.div`
     }
 
 `
+
+export const WordWarp = styled.div`
+    display: flex;
+    border: 1px solid red;
+    margin: 10px;
+    .avatar{
+        margin-right: 10px;
+    }
+    .inner{
+        display: flex;
+        flex-direction: column;
+        .text{
+            margin-top: 10px;
+            background: orange;
+            border-radius: 5px;
+            padding: 5px 8px;
+        }
+        .name{
+           font-size: 10px;
+           color: #888888;
+        }
+    }
+`

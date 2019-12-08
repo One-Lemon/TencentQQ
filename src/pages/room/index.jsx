@@ -2,10 +2,28 @@ import React, { Component } from 'react';
 import { BoxWarp } from "./css";
 // import { Avatar } from "antd";
 import { MyIcon } from "../../utils/icon";
+import API from "../../utils/api";
+import Word from "../../components/word";
 
 export default class Room extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            user: {}
+        }
+    }
+    async componentDidMount() {
+        const { match } = this.props;
+        const { user } = match.params;
+        const nowUser = await API.getTalkInfo(user);
+        this.setState({
+            user: nowUser
+        })
+        console.log(nowUser);
+    }
     render() {
         const { history } = this.props;
+        const { user } = this.state;
         return (
             <BoxWarp>
                 <div id="inner">
@@ -17,7 +35,10 @@ export default class Room extends Component {
                             <MyIcon type="icon-fanhui" />
                         </div>
                         <div id="room-name">
-                            <MyIcon type="icon-erduo" style={{ marginRight: "5px" }} />邱邱
+                            <MyIcon type="icon-erduo" style={{ marginRight: "5px" }} />
+                            {
+                                user && user.name
+                            }
                         </div>
                         <div id="menu">
                             <MyIcon type="icon-aixin" className="menu-icon" />
@@ -25,7 +46,7 @@ export default class Room extends Component {
                         </div>
                     </div>
                     <div id="box">
-
+                        <Word />
                     </div>
                     <div id="footer">
                         <MyIcon type="icon-icon--" className="icon" />
