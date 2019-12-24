@@ -17,7 +17,7 @@ class Qlist extends Component {
 
     async componentDidMount() {
         const talkList = await request({
-            url: "talkList"
+            url: "talk"
         });
         this.setState({
             talkList
@@ -52,7 +52,7 @@ class Qlist extends Component {
                             <div className="text2">
                                 <span className="time">
                                     {
-                                        talk && talk.state.map((s, idx) => {
+                                        talk.state && talk.state.map((s, idx) => {
                                             switch (s) {
                                                 case "isFire":
                                                     return <MyIcon key={idx} type="icon-huoqing-" />

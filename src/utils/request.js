@@ -22,7 +22,7 @@ const codeMessage = {
     504: "网关超时。"
 };
 
-const baseUrl = "http://127.0.0.1:3002";
+const baseUrl = "http://127.0.0.1:9999";
 /**配置默认请求路径 */
 axios.defaults.baseURL = baseUrl;
 /**配置超时时间 */
@@ -39,7 +39,8 @@ axios.interceptors.response.use(
         } else {
             message.success({
                 content: "请求成功，正在偷数据...",
-                key: "request"
+                key: "request",
+                duration: 0.5
             });
             return res;
         }
@@ -58,11 +59,26 @@ const request = async (options) => {
     if (typeof options != "object") {
         message.warn({
             content: "请求参数错误",
-            key: "request"
+            key: "request",
+            duration: 0.5
         });
         return;
     }
-    return await axios.request({ ...options });
+    const result = await axios.request({ ...options });
+    if (result && result.code !== 0) {
+        result.code === -1 && message.error({
+            content: result.msg,
+            duration: 2,
+            key: "request"
+        })
+    } else {
+        message.success({
+            content: result.msg,
+            duration: 2,
+            key: "request"
+        })
+    }
+    return result;
 }
 
 export default request;

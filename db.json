@@ -1,16 +1,29 @@
 {
     "user": [{
-        "id": 1,
-        "username": "qfl",
-        "age": 38
-    }],
+            "username": "qfl",
+            "age": 38,
+            "isLogin": false,
+            "password": "onelemon",
+            "talkId": ""
+        },
+        {
+            "username": "qf",
+            "age": 18,
+            "isLogin": true,
+            "password": "qf",
+            "talkId": "xVIdIKYwvzr0bUJyAAAC"
+        }
+    ],
     "talkList": [{
             "talkId": "girl",
             "name": "邱福亮",
             "avatar": "/images/myavatar.png",
             "recentMessage": "OK，邱邱说的对",
             "time": "下午 10:09",
-            "state": ["isFire", "isShip"],
+            "state": [
+                "isFire",
+                "isShip"
+            ],
             "quantity": 2
         },
         {
@@ -19,22 +32,33 @@
             "avatar": "/images/myavatar.png",
             "recentMessage": "OK，邱邱说的对",
             "time": "下午 10:09",
-            "state": ["isFire"],
+            "state": [
+                "isFire"
+            ],
             "quantity": 2
         }
     ],
     "talkInfo": [{
-        "talkId": "Boy",
-        "name": "俞慧敏",
-        "info": []
-    }, {
-        "talkId": "girl",
-        "name": "邱福亮",
-        "info": [{
             "talkId": "Boy",
-            "content": "我告诉你，你就是个弟弟",
-            "avatar": "/images/myavatar.png",
-            "time": "2019-12-8 14:42"
-        }]
-    }]
+            "name": "俞慧敏",
+            "info": []
+        },
+        {
+            "talkId": "girl",
+            "name": "邱福亮",
+            "info": [{
+                    "talkId": "Boy",
+                    "content": "我告诉你，你就是个弟弟",
+                    "avatar": "/images/myavatar.png",
+                    "time": "2019-12-8 下午10:07:15"
+                },
+                {
+                    "talkId": "girl",
+                    "content": "你才是个弟弟",
+                    "avatar": "/images/myavatar.png",
+                    "time": "2019-12-8 下午10:07:20"
+                }
+            ]
+        }
+    ]
 }

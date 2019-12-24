@@ -12,6 +12,7 @@ export default class Room extends Component {
             user: {}
         }
     }
+
     async componentDidMount() {
         const { match } = this.props;
         const { user } = match.params;
@@ -19,8 +20,27 @@ export default class Room extends Component {
         this.setState({
             user: nowUser
         })
-        console.log(nowUser);
     }
+
+    /**
+     * 发送消息
+     */
+    onSend = async (e) => {
+        let value = e.target.value;
+        const { user } = this.state;
+        if (!value) return;
+        if (e.keyCode === 13) {
+            e.target.value = "";
+            let data = {
+                "talkId": user.talkId,
+                "content": value,
+                "avatar": user.avatar,
+                "time": new Date().getTime().toLocaleString().replace(/\//g, '-')
+            }
+            await API.sendTalk(data);
+        }
+    }
+
     render() {
         const { history } = this.props;
         const { user } = this.state;
@@ -46,11 +66,11 @@ export default class Room extends Component {
                         </div>
                     </div>
                     <div id="box">
-                        <Word />
+                        <Word info={user && user.info} />
                     </div>
                     <div id="footer">
                         <MyIcon type="icon-icon--" className="icon" />
-                        <input type="text" name="talk-inner" id="talk-inner" />
+                        <input type="text" name="talk-inner" id="talk-inner" onKeyUp={this.onSend} />
                         <div className="footer-icons" >
                             <MyIcon type="icon-smile" className="icon" />
                             <MyIcon type="icon-gengduo" className="icon" />

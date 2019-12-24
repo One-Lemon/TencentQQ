@@ -7,7 +7,7 @@
 - `yarn install` 安装依赖
 - `yarn start` 运行项目
 - `nodemon server.js` 运行后台服务
-- `json-server --watch --id talkId --port 3002 db.jso` 启动接口
+- `yarn db` 启动接口
 
 ## 相关依赖包
 
@@ -20,12 +20,13 @@
 - redux-logger 日志
 - axios
 - json-server 模拟数据库
+- socket.io socket.io-client websocket 加强版
 
 ---
 
 # 服务端
 
-> 基于 node.js
+> 基于 node.js 以及 socket.io
 
 ## 运行
 
